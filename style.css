@@ -88,11 +88,12 @@ nav ul li a:hover {
   align-items: center;
 }
 #hero-bg {
-  max-width: 40%;
+  max-width: 30%;
   object-fit: contain;
+  margin-top: 20px
 }
 #hero-text {
-  max-width: 80%;
+  max-width: 60%;
   margin-top: 20px;
   margin-bottom: 20px;
 }
