@@ -250,15 +250,12 @@ footer {
   nav ul {
     gap: 10px;
   }
-
-  .hero h1 {
-    font-size: 2rem;
+  #hero-bg {
+    max-width: 60%;
   }
-
-  .hero p {
-    font-size: 1rem;
+  #hero-text {
+    max-width: 80%;
   }
-
   section {
     padding: 60px 20px;
   }
@@ -274,10 +271,18 @@ footer {
     flex-direction: row;
   }
 
+
   nav ul {
     flex-direction: column;
     gap: 15px;
     margin-top: 10px;
+  }
+
+  #hero-bg {
+    max-width: 60%;
+  }
+  #hero-text {
+    max-width: 80%;
   }
 
   .logo {
