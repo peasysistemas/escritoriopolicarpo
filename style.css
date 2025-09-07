@@ -32,7 +32,7 @@ header {
 
 header.transparent {
   background: transparent;
-  color: #000;
+  color: #e1e6e3
 }
 
 header.solid {
@@ -73,7 +73,7 @@ nav ul li a:hover {
 .hero {
   height: 100vh;
   width: 100%;
-  background-color: #5a8096; /* Cor de fundo complementar */
+  background-color: #153363; /* Cor de fundo complementar */
   display: flex;
   justify-content: center;
   align-items: center;
