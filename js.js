@@ -17,3 +17,16 @@ window.addEventListener("scroll", () => {
 menuToggle.addEventListener("click", () => {
   menu.classList.toggle("open");
 });
+
+window.addEventListener("load", () => {
+  const heroBg = document.getElementById("hero-bg");
+  const heroText = document.getElementById("hero-text");
+
+  // Primeiro: anima o fundo (hero-bg)
+  heroBg.classList.add("animate-bg");
+
+  // Depois de 1s (quando terminar a primeira animação), entra o texto
+  setTimeout(() => {
+    heroText.classList.add("animate-text");
+  }, 1500); 
+});
