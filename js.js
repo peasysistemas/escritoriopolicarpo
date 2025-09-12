@@ -30,3 +30,74 @@ window.addEventListener("load", () => {
     heroText.classList.add("animate-text");
   }, 1500); 
 });
+
+// Efeito máquina de escrever para a seção "Sobre Nós"
+
+
+
+ function typeEffect(element, text, duration, callback) {
+    let i = 0;
+    const totalChars = text.length;
+    const interval = duration / totalChars; // velocidade calculada para durar "duration"
+
+    element.textContent = "";
+
+    const timer = setInterval(() => {
+      element.textContent += text.charAt(i);
+      i++;
+      if (i === totalChars) {
+        clearInterval(timer);
+        if (callback) callback();
+      }
+    }, interval);
+  }
+
+  window.addEventListener("load", () => {
+    const titulo = document.getElementById("sobre-title");
+    const texto = document.getElementById("sobre-text");
+
+    // Salva o conteúdo original
+    const tituloTexto = titulo.textContent;
+    const textoTexto = texto.textContent;
+
+    // Apaga o conteúdo inicial
+    titulo.textContent = "";
+    texto.textContent = "";
+
+    // Digita primeiro o título (4s) e depois o parágrafo (7s)
+    typeEffect(titulo, tituloTexto, 2000, () => {
+      typeEffect(texto, textoTexto, 7000);
+    });
+  });
+
+// Efeito de expansão dos cards na seção "Areas de atuacao"
+
+function toggleCard(card) {
+    // Fecha outros cards
+    document.querySelectorAll(".card").forEach(c => {
+      if (c !== card) c.classList.remove("active");
+    });
+    // Alterna o card clicado
+    card.classList.toggle("active");
+  }
+
+
+  // Abre modal com mais informações
+
+    function openModal(title, text) {
+    document.getElementById("modal-title").innerText = title;
+    document.getElementById("modal-text").innerText = text; 
+    document.getElementById("modal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+
+  // Fechar modal ao clicar fora
+  window.onclick = function(event) {
+    let modal = document.getElementById("modal");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }

@@ -8,6 +8,7 @@
 </head>
 <body>
 
+
   <!-- HEADER -->
   <header class="transparent" id="navbar">
   <div class="logo">
@@ -43,32 +44,68 @@
   </section>
 
   <!-- SOBRE -->
-  <section id="sobre">
-    <h2>Sobre Nós</h2>
-    <p>
-      Nosso escritório atua há mais de 15 anos oferecendo assessoria jurídica completa,
-      sempre com foco em resultados e na confiança de nossos clientes.
+  <section class="container" id="sobre">
+    <h2 id="sobre-title">Sobre Nós</h2>
+    <p id="sobre-text">
+      No Veras Godeiro & Policarpo – Advocacia, acreditamos que cada cliente tem uma história única e merece ser ouvido com atenção e respeito. Por isso, unimos mais de 15 anos de experiência de nossos sócios fundadores à tecnologia e à inovação, para oferecer soluções jurídicas ágeis, eficazes e personalizadas.
+
+      A advogada Dra. Cynthia Veras Godeiro tem sólida atuação em Direito Público, Administrativo e Cível, bem como o Direito de Família e Sucessões. Sempre pautada pela ética e pela busca por resultados que transformem vidas. O advogado Dr. Irapuan Policarpo, especialista em Direito Trabalhista, Criminal e Previdenciário, alia conhecimento técnico a uma escuta sensível, garantindo segurança e confiança em cada etapa do processo.
+
+      Nosso escritório é totalmente informatizado e utiliza ferramentas de Inteligência Artificial, o que permite maior celeridade e precisão. Mas nunca deixamos que a tecnologia substitua aquilo que mais valorizamos: o atendimento humano, próximo e comprometido com as necessidades reais de quem nos procura.
+
+      No VGP, você encontra mais do que advogados: encontra parceiros para caminhar ao seu lado na defesa dos seus direitos.
+      Atuação em todo o território nacional.
     </p>
   </section>
 
   <!-- ÁREAS DE ATUAÇÃO -->
-  <section id="areas">
+<!-- ÁREAS DE ATUAÇÃO -->
+<!-- ÁREAS DE ATUAÇÃO -->
+<section id="areas-atuacao" class="areas">
+  <div class="container">
     <h2>Áreas de Atuação</h2>
-    <div class="areas">
-      <div class="card">
+    <div class="cards">
+
+      <!-- Card 1 -->
+      <div class="card" onclick="toggleCard(this)">
+        <div class="icon">👷‍♂️</div>
+        <h3>Trabalhista</h3>
+        <p class="texto-card">
+          Consultoria e defesa em questões trabalhistas, garantindo direitos e conformidade legal.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card" onclick="toggleCard(this)">
+        <div class="icon">🧓</div>
+        <h3>Previdenciário</h3>
+        <p class="texto-card">
+          Consultoria e defesa em questões previdenciárias, assegurando direitos e benefícios.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card" onclick="toggleCard(this)">
+        <div class="icon">🏛️</div>
+        <h3>Servidores Públicos</h3>
+        <p class="texto-card">
+          Consultoria e defesa em questões relacionadas a servidores públicos, garantindo direitos e benefícios.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card" onclick="toggleCard(this)">
+        <div class="icon">⚖️</div>
         <h3>Direito Civil</h3>
-        <p>Atuação em contratos, responsabilidade civil e disputas patrimoniais.</p>
+        <p class="texto-card">
+          Consultoria e defesa em questões civis, assegurando direitos e soluções eficazes.
+        </p>
       </div>
-      <div class="card">
-        <h3>Direito Trabalhista</h3>
-        <p>Defesa dos interesses de empresas e colaboradores.</p>
-      </div>
-      <div class="card">
-        <h3>Direito Empresarial</h3>
-        <p>Consultoria e suporte estratégico para empresas.</p>
-      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- UNIDADES -->
 
