@@ -73,31 +73,11 @@ window.addEventListener("load", () => {
 // Efeito de expansão dos cards na seção "Areas de atuacao"
 
 function toggleCard(card) {
-    // Fecha outros cards
-    document.querySelectorAll(".card").forEach(c => {
-      if (c !== card) c.classList.remove("active");
-    });
-    // Alterna o card clicado
-    card.classList.toggle("active");
-  }
+  // Fecha todos os outros cards antes
+  document.querySelectorAll('.card').forEach(c => {
+    if (c !== card) c.classList.remove('active');
+  });
 
-
-  // Abre modal com mais informações
-
-    function openModal(title, text) {
-    document.getElementById("modal-title").innerText = title;
-    document.getElementById("modal-text").innerText = text; 
-    document.getElementById("modal").style.display = "block";
-  }
-
-  function closeModal() {
-    document.getElementById("modal").style.display = "none";
-  }
-
-  // Fechar modal ao clicar fora
-  window.onclick = function(event) {
-    let modal = document.getElementById("modal");
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  }
+  // Alterna o card clicado
+  card.classList.toggle('active');
+}
