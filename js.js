@@ -81,3 +81,86 @@ function toggleCard(card) {
   // Alterna o card clicado
   card.classList.toggle('active');
 }
+
+// Ativa o flip ao clicar no botão
+document.querySelectorAll('.btn-flip').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.unidade-card');
+    card.classList.toggle('flipped');
+  });
+});
+
+
+/* Reveal on scroll - IntersectionObserver */
+const revealItems = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+revealItems.forEach(el => revealObserver.observe(el));
+
+/* Modal logic + typewriter effect */
+function openMemberModal(buttonOrEl) {
+  // recover card element (the button might be inside)
+  const card = buttonOrEl.closest ? buttonOrEl.closest('.membro-card') : buttonOrEl;
+  if (!card) return;
+
+  const name = card.getAttribute('data-name') || '';
+  const role = card.getAttribute('data-role') || '';
+  const bio = card.getAttribute('data-bio') || '';
+  const photoEl = card.querySelector('.membro-photo img');
+  const photoSrc = photoEl ? photoEl.getAttribute('src') : '';
+
+  // populate modal
+  document.getElementById('member-modal-name').innerText = name;
+  document.getElementById('member-modal-role').innerText = role;
+  document.getElementById('modal-photo').setAttribute('src', photoSrc);
+  document.getElementById('modal-photo').setAttribute('alt', name);
+
+  const bioContainer = document.getElementById('member-modal-bio');
+  bioContainer.textContent = ''; // clear
+  openModalUI();
+
+  // Typewriter effect for bio
+  typewriter(bioContainer, bio, 800); // duration ~800ms? adjust below
+}
+
+
+
+/* open / close UI */
+function openModalUI() {
+  const modal = document.getElementById('member-modal');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden'; // lock scroll
+}
+function closeMemberModal() {
+  const modal = document.getElementById('member-modal');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = ''; // restore scroll
+}
+
+/* Close modal on Esc */
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeMemberModal();
+});
+
+/* Typewriter util: duration in ms */
+function typewriter(element, text, duration) {
+  element.textContent = '';
+  const total = text.length;
+  if (total === 0) return;
+  // clamp duration between 600ms and 5000ms for usability
+  const dur = Math.max(600, Math.min(duration || 2000, 5000));
+  const interval = dur / total;
+  let i = 0;
+  const timer = setInterval(() => {
+    element.textContent += text.charAt(i);
+    i++;
+    if (i >= total) clearInterval(timer);
+  }, interval);
+}

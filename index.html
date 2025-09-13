@@ -107,35 +107,117 @@
 </section>
 
 
-  <!-- UNIDADES -->
+
+<!-- NOSSAS UNIDADES -->
 
 
-  <section id="unidades">
+<section id="unidades" class="unidades">
+  <div class="container">
     <h2>Nossas Unidades</h2>
-    <p>Temos unidades em diversas localidades para melhor atender nossos clientes.</p>
-  </section>
+    <div class="unidades-cards">
 
-  <!-- MEMBROS -->
-  <section id="membros">
-    <h2>Nossos Membros</h2>
-    <div class="membros">
-      <div class="membro-card">
-        <img src="../escritoriopolicarpo/image/advogado1.jpg" alt="Advogado 1">
-        <h3>Dr. João Silva</h3>
-        <p>Especialista em Direito Civil</p>
+      <!-- Card 1 -->
+      <div class="unidade-card">
+        <div class="card-inner">
+          <!-- Frente -->
+          <div class="card-front">
+            <img src="../escritoriopolicarpo/image/unidade1.jpg" alt="Unidade 1">
+            <button class="btn-flip">Onde Estamos</button>
+          </div>
+          <!-- Verso -->
+          <div class="card-back">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=SEU_LINK_AQUI" 
+              width="100%" height="100%" style="border:0;" allowfullscreen="" 
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
       </div>
-      <div class="membro-card">
-        <img src="../escritoriopolicarpo/image/advogado2.jpg" alt="Advogado 2">
-        <h3>Dra. Maria Oliveira</h3>
-        <p>Especialista em Direito Trabalhista</p>
+
+      <!-- Card 2 -->
+      <div class="unidade-card">
+        <div class="card-inner">
+          <!-- Frente -->
+          <div class="card-front">
+            <img src="../escritoriopolicarpo/image/unidade2.jpg" alt="Unidade 2">
+            <button class="btn-flip">Onde Estamos</button>
+          </div>
+          <!-- Verso -->
+          <div class="card-back">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=SEU_OUTRO_LINK_AQUI" 
+              width="100%" height="100%" style="border:0;" allowfullscreen="" 
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
       </div>
-      <div class="membro-card">
-        <img src="../escritoriopolicarpo/image/advogado3.jpg" alt="Advogado 3">
-        <h3>Dr. Carlos Pereira</h3>
-        <p>Especialista em Direito Empresarial</p>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====== MEMBROS ====== -->
+<section id="membros" class="membros">
+  <div class="container">
+    <h2 class="membros-title">Nossa Equipe</h2>
+
+    <div class="membros-grid">
+      <!-- Membro 1 -->
+      <article class="membro-card reveal" tabindex="0" data-name="
+Dr. IRAPUAN POLICARPO" data-role="Sócio Fundador" data-bio="Dr. IRAPUAN POLICARPO é especialista em Direito Empresarial com mais de 18 anos de atuação. Conduziu casos complexos de reestruturação societária e compliance.">
+        <div class="membro-photo">
+          <img src="images/joao-pb.jpg" alt="Foto Dr. João Silva">
+        </div>
+        <div class="membro-info">
+            <h3>Dr. IRAPUAN POLICARPO</h3>
+          <p class="cargo">Sócio Fundador</p>
+          <div class="membro-actions">
+            <button class="btn-outline" onclick="openMemberModal(this)">Ver Perfil</button>
+            <a class="icon-link" href="mailto:joao@firma.com" aria-label="Enviar email ao Dr. João">✉️</a>
+            <a class="icon-link" href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn do Dr. João">in</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Membro 2 -->
+      <article class="membro-card reveal" tabindex="0" data-name="Dra. Maria G. Pereira" data-role="Associada Sênior" data-bio="Dra. Maria é especialista em Direito Trabalhista e Previdenciário, com ampla experiência em negociações coletivas e defesas estratégicas.">
+        <div class="membro-photo">
+          <img src="images/maria-pb.jpg" alt="Foto Dra. Maria G. Pereira">
+        </div>
+        <div class="membro-info">
+          <h3>Dra. Maria G. Pereira</h3>
+          <p class="cargo">Associada Sênior</p>
+          <div class="membro-actions">
+            <button class="btn-outline" onclick="openMemberModal(this)">Ver Perfil</button>
+            <a class="icon-link" href="mailto:maria@firma.com" aria-label="Enviar email à Dra. Maria">✉️</a>
+            <a class="icon-link" href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn da Dra. Maria">in</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Modal de membro -->
+<div id="member-modal" class="member-modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="member-modal-backdrop" onclick="closeMemberModal()"></div>
+  <div class="member-modal-panel" role="document" aria-labelledby="member-modal-name">
+    <button class="modal-close" aria-label="Fechar" onclick="closeMemberModal()">✕</button>
+    <div class="member-modal-grid">
+      <div class="member-modal-photo">
+        <img id="modal-photo" src="" alt="">
+      </div>
+      <div class="member-modal-body">
+        <h3 id="member-modal-name"></h3>
+        <p class="member-modal-role" id="member-modal-role"></p>
+        <div class="member-modal-bio" id="member-modal-bio"></div>
+        <div class="member-modal-contacts" id="member-modal-contacts"></div>
       </div>
     </div>
-  </section>
+  </div>
+</div>
+
 
   <!-- DEPOIMENTOS -->
   <section id="depoimentos">
@@ -157,7 +239,7 @@
     </p>
   </section>
 
-  <!-- LOCALIZAÇÃO -->
+  <!-- LOCALIZAÇÃO 
   <section id="localizacao">
     <h2>Localização</h2>
     <p>Encontre-nos em nossas unidades:</p>
@@ -169,7 +251,7 @@
     <div class="map">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.1234567890123!2d-46.6333096845000!3d-23.5505201847000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c5b6b8b8b7%3A0x123456789abcdef0!2sEscrit%C3%B3rio%20de%20Advocacia%20XYZ!5e0!3m2!1spt-BR!2sbr!4v1600000000000!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
-  </section>
+  </section>-->
 
   <!-- CONTATO -->
   <section id="contato">

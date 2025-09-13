@@ -310,6 +310,293 @@ section h2 {
   margin-top: 10px;
 }
 
+/* =========== NOSSAS UNIDADES ========== */
+
+
+#unidades {
+  background: #11111154;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+#unidades h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #b9975b;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.unidades-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin: 20px;
+}
+
+.unidade-card {
+  width: 320px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.unidade-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Frente do card */
+.card-front, 
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.card-front {
+  background: #222;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-front img {
+  width: 100%;
+  height: 85%;
+  object-fit: cover;
+}
+
+.card-front .btn-flip {
+  width: 100%;
+  padding: 12px;
+  background: #b9975b;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card-front .btn-flip:hover {
+  background: #8c733f;
+}
+
+/* Verso do card */
+.card-back {
+  background: #fff;
+  transform: rotateY(180deg);
+}
+
+.card-back iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+
+/* ====== MEMBROS: estilo institucional + moderno ====== */
+
+
+
+.membros {
+  background: linear-gradient(180deg, #0f1720 0%, #111827 100%);
+  color: #e6eaf0;
+  padding: 80px 20px;
+}
+
+.membros-title {
+  color: #c9a85b; /* dourado discreto */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Grid responsivo */
+.membros-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+@media (max-width: 992px) {
+  .membros-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .membros-grid { grid-template-columns: 1fr; }
+}
+
+/* Card */
+.membro-card {
+  background: linear-gradient(180deg, #0b0f14, #111318);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Photo: starts P&B */
+.membro-photo {
+  flex: 0 0 110px;
+  width: 110px;
+  height: 110px;
+  border-radius: 8px;
+  overflow: hidden;
+  filter: grayscale(100%) contrast(0.95);
+  transition: filter 0.45s ease, transform 0.45s ease;
+}
+.membro-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Info */
+.membro-info h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.05rem;
+}
+.membro-info .cargo {
+  margin: 6px 0 10px 0;
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+/* Actions */
+.membro-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(201,168,91,0.18);
+  color: #c9a85b;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-outline:hover { background: rgba(201,168,91,0.06); transform: translateY(-2px); }
+
+.icon-link {
+  color: #9aa6b2;
+  font-weight: 700;
+  padding: 6px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* Hover: photo ganha cor e card eleva */
+.membro-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(2,6,23,0.7);
+}
+.membro-card:hover .membro-photo { filter: grayscale(0%) contrast(1); transform: scale(1.03); }
+
+/* Reveal animation (fade-up) */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ====== MODAL ====== */
+.member-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+.member-modal[aria-hidden="false"] { display: block; }
+
+.member-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2,6,23,0.7);
+  backdrop-filter: blur(4px);
+}
+
+.member-modal-panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  max-width: 920px;
+  width: calc(100% - 40px);
+  background: linear-gradient(180deg, #0b0f13, #0f1620);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 30px 80px rgba(2,6,23,0.8);
+  color: #e6eef6;
+}
+
+/* Modal grid */
+.member-modal-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+@media (max-width: 800px) {
+  .member-modal-grid { grid-template-columns: 1fr; text-align: center; }
+  .member-modal-photo { margin: 0 auto; width: 220px; height: 220px; }
+}
+
+/* Modal photo */
+.member-modal-photo { width: 260px; height: 260px; overflow: hidden; border-radius: 10px; }
+.member-modal-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Modal body */
+.member-modal-body h3 { margin: 0 0 6px 0; font-size: 1.4rem; color: #fff; }
+.member-modal-role { margin: 0 0 12px 0; color: #9aa6b2; }
+.member-modal-bio { color: #d1d9e0; font-size: 0.98rem; min-height: 90px; }
+
+/* Close */
+.modal-close {
+  position: absolute;
+  right: 18px;
+  top: 14px;
+  background: transparent;
+  border: none;
+  color: #9aa6b2;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+
+
 /* ======= FORM ======= */
 form {
   max-width: 600px;
