@@ -96,8 +96,14 @@ nav ul li a:hover {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: auto;
+}
+
+.containerback {
+  background-color: #e1e6e3a8;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 /* ======= HERO ======= */
@@ -218,9 +224,6 @@ section h2 {
 
 /* ======= SOBRE NÓS ======= */
 
-#sobre {
-  margin: 30px 0px;
-}
 
 #sobre p {
   max-width: 800px;
@@ -241,14 +244,14 @@ section h2 {
 
 
   /* ====== ÁREAS DE ATUAÇÃO ====== */
-#areas-atuacao {
+#areas {
   background:#153363;
   padding: 80px 20px;
   color: #e1e6e3;
   text-align: center;
 }
 
-#areas-atuacao h2 {
+#areas h2 {
   font-size: 2.2rem;
   margin-bottom: 40px;
   color: #e1e6e3;
@@ -257,15 +260,19 @@ section h2 {
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 
 .card {
+  display: flex;
+  max-width: 250px;
+  flex-direction: column;
   background: #5a8096;
   border-radius: 12px;
-  padding: 25px;
+  padding: 20px;
   box-shadow: 0 5px 20px rgba(0 5px 20px rgba(0,0,0,0.3));
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
@@ -284,8 +291,7 @@ section h2 {
 }
 
 .icon img {
-  width: 200px;
-  height: 200px;
+  width: 100%;
 }
 
 .card h3 {
@@ -735,7 +741,7 @@ nav {
     top: 100%; /* logo abaixo do header */
     left: 0;
     width: 100%;
-    background: #fff;
+    background: #000000fa;
     max-height: 0;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   }
@@ -743,16 +749,16 @@ nav {
   nav ul {
     flex-direction: column;
     text-align: center;
-    padding: 10px 0;
+    padding: 5px 0;
   }
 
   nav ul li {
-    padding: 15px 0;
+    padding: 5px 10px;
   }
 
   nav ul li a {
-    font-size: 1.1rem;
-    color: #222;
+    font-size: 0.9rem;
+    color: #ccc;
   }
 
   header.transparent nav {
@@ -770,6 +776,6 @@ nav {
 
     /* Quando o menu está aberto */
     nav.open {
-      max-height: 300px; /* altura suficiente para os links */
+      max-height: 100vh; /* altura suficiente para os links */
     } 
   }
