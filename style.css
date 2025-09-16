@@ -23,7 +23,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.473); /* preto com 50% de opacidade */
+  background: rgba(0, 0, 0, 0.473); /* preto com 50% de opacidade */
   z-index: -1; /* fica atrás do conteúdo */
 }
 
@@ -99,6 +99,7 @@ nav ul li a:hover {
   max-width: 1000px;
   margin: auto;
 }
+
 
 .containerback {
   background-color: #e1e6e3a8;
@@ -219,7 +220,6 @@ section h2 {
   font-size: 2rem;
   margin-bottom: 20px;
   text-align: center;
-  color: #000000;
 }
 
 /* ======= SOBRE NÓS ======= */
@@ -240,6 +240,7 @@ section h2 {
     border-right: 2px solid #333;
     white-space: pre-wrap;
     overflow: hidden;
+    color: #000;
 }
 
 
@@ -329,7 +330,7 @@ section h2 {
 #unidades h2 {
   font-size: 2.2rem;
   margin-bottom: 40px;
-  color: #b9975b;
+  color: #153363;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -426,7 +427,7 @@ section h2 {
 }
 
 .membros-title {
-  color: #c9a85b; /* dourado discreto */
+  color: #153363; /* dourado discreto */
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 1.8rem;
@@ -436,12 +437,16 @@ section h2 {
 
 /* Grid responsivo */
 .membros-grid {
-  display: grid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: stretch;
+  margin: auto;
+}
+
+.membro-actions img {
+  width: 24px;
+  height: 24px;
 }
 
 @media (max-width: 992px) {
@@ -706,6 +711,25 @@ footer {
     padding: 10px 20px;
     font-size: 0.9rem;
   }
+
+  .membros-grid {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .membro-card {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  } 
+
+  .membro-actions {
+    justify-content: center;
+  }
+
 
   section h2 {
     font-size: 1.5rem;
