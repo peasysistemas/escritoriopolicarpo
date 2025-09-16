@@ -164,3 +164,64 @@ function typewriter(element, text, duration) {
     if (i >= total) clearInterval(timer);
   }, interval);
 }
+
+// Carrossel na seção "Depoimentos"
+
+const carouselInner = document.querySelector(".carousel-inner");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+const cards = document.querySelectorAll(".carousel-inner .card-depoimento");
+
+let index = 1; // começa no primeiro card "real"
+let size = cards[0].clientWidth;
+
+// posiciona o carrossel no primeiro card real
+carouselInner.style.transform = `translateX(-${size * index}px)`;
+
+// Função para mover carrossel
+function updateCarousel() {
+  carouselInner.style.transition = "transform 0.6s ease";
+  carouselInner.style.transform = `translateX(-${size * index}px)`;
+}
+
+// Ao terminar a transição, checa se está em clone
+carouselInner.addEventListener("transitionend", () => {
+  const cards = document.querySelectorAll(".carousel-inner .card");
+  if (cards[index].innerText.includes("C.D.") && index === cards.length - 1) {
+    carouselInner.style.transition = "none";
+    index = 1; // volta para o primeiro real
+    carouselInner.style.transform = `translateX(-${size * index}px)`;
+  }
+  if (cards[index].innerText.includes("A.R.") && index === 0) {
+    carouselInner.style.transition = "none";
+    index = cards.length - 2; // último real
+    carouselInner.style.transform = `translateX(-${size * index}px)`;
+  }
+});
+
+// Botão anterior
+prevBtn.addEventListener("click", () => {
+  index--;
+  updateCarousel();
+});
+
+// Botão próximo
+nextBtn.addEventListener("click", () => {
+  index++;
+  updateCarousel();
+});
+
+// Auto play a cada 5s
+setInterval(() => {
+  index++;
+  updateCarousel();
+}, 5000);
+
+// Ajusta tamanho em caso de resize
+window.addEventListener("resize", () => {
+  size = cards[0].clientWidth;
+  carouselInner.style.transition = "none";
+  carouselInner.style.transform = `translateX(-${size * index}px)`;
+});
+
+
