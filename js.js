@@ -224,4 +224,24 @@ window.addEventListener("resize", () => {
   carouselInner.style.transform = `translateX(-${size * index}px)`;
 });
 
+// Formulário de contato via WhatsApp
+
+document.getElementById("contatoForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let nome = document.getElementById("nome").value;
+  let email = document.getElementById("email").value;
+  let telefone = document.getElementById("telefone").value;
+  let mensagem = document.getElementById("mensagem").value;
+
+  let texto = `📌 Novo contato via site%0A👤 Nome: ${nome}%0A📧 E-mail: ${email}%0A📞 Telefone: ${telefone}%0A📝 Mensagem: ${mensagem}`;
+
+  // Número em formato internacional (55 + DDD + número)
+  let numero = "5584981331401"; // substitua pelo número desejado
+
+  // Abre o WhatsApp com a mensagem pré-preenchida
+
+  let url = `https://wa.me/${numero}?text=${texto}`;
+  window.open(url, "_blank");
+});
 
